@@ -1,0 +1,33 @@
+{% extends "template.html" %}
+{% block conteudo %}
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+            <a class="btn btn-success" href="{{ url_for('novo') }}">+ Novo Jogo</a>
+            <a class="btn btn-info" href="{{ url_for('login') }}">Login</a>
+            <a class="btn btn-danger" href="{{ url_for('logout') }}">Logout</a>
+        </div>
+    </div>
+
+    <div class="row">
+        {% for jogo in jogos %}
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+                <img class="card-img-top" src="{{ url_for('imagem', nome_arquivo=recupera_imagem(jogo.id)) }}" alt="{{ jogo.nome }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ jogo.nome }}</h5>
+                    <p class="card-text">
+                        <strong>Categoria:</strong> {{ jogo.categoria }}<br>
+                        <strong>Console:</strong> {{ jogo.console }}
+                    </p>
+                </div>
+                <div class="card-footer bg-white border-top-0">
+                    <a href="{{ url_for('editar', id=jogo.id) }}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{{ url_for('deletar', id=jogo.id) }}" class="btn btn-sm btn-danger" onclick="return confirm('Tem certeza?')">Deletar</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock conteudo %}

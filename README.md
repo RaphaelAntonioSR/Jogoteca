@@ -32,7 +32,7 @@ Este projeto implementa todas as operações **CRUD** (Create, Read, Update, Del
 ## 📁 Estrutura do Projeto
 
 ```
-Jogoteca-C1/
+Jogoteca/
 ├── config.py              # Configurações da aplicação
 ├── app.py            # Inicialização do Flask
 ├── models.py              # Modelos do banco de dados
@@ -65,15 +65,15 @@ Jogoteca-C1/
 1. Clone o repositório
 ```bash
 git clone git@github.com:RaphaelAntonioSR/Jogoteca.git
-cd Jogoteca-C1
+cd Jogoteca
 ```
 
 2. Instale as dependências
 ```bash
-pip install flask flask-sqlalchemy flask-wtf flask-bcrypt
+pip install flask flask-sqlalchemy flask-wtf flask-bcrypt mysql-connector-python
 ```
 
-3. Prepare o banco de dados
+3. Prepare o banco de dados e o arquivo de configuração
 ```bash
 python prepara_banco.py
 ```
